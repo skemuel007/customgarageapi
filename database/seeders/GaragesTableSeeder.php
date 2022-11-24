@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Builder;
+use App\Models\Garage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class BuildersTableSeeder extends Seeder
+class GaragesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,18 +15,15 @@ class BuildersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('builders')->delete();
-        $json = File::get("database/data-sample/builders.json");
+        DB::table('garages')->delete();
+        $json = File::get("database/data-sample/garages.json");
         $data = json_decode($json);
         foreach ($data as $obj) {
-            Builder::create(array(
+            Garage::create(array(
                 'id' => $obj->id,
                 'name' => $obj->name,
-                'description' => $obj->description,
-                'location' => $obj->location
+                'customer_level' => $obj->customer_level
             ));
         }
-
     }
 }

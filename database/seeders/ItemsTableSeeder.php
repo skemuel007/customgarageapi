@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Builder;
+use App\Models\Item;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class BuildersTableSeeder extends Seeder
+class ItemsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,18 +15,17 @@ class BuildersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('builders')->delete();
-        $json = File::get("database/data-sample/builders.json");
+        DB::table('items')->delete();
+        $json = File::get("database/data-sample/items.json");
         $data = json_decode($json);
         foreach ($data as $obj) {
-            Builder::create(array(
+            Item::create(array(
                 'id' => $obj->id,
+                'type' => $obj->type,
                 'name' => $obj->name,
-                'description' => $obj->description,
-                'location' => $obj->location
+                'company' => $obj->company,
+                'bike_id' => $obj->bike_id
             ));
         }
-
     }
 }
