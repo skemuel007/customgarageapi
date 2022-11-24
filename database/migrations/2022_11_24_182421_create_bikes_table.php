@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bike_garage', function (Blueprint $table) {
+        Schema::create('bikes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('bike_id');
-            $table->unsignedBigInteger('garage_id');
+            $table->string('name');
+            $table->string('model');
+            $table->string('year');
+            $table->text('mods');
+            $table->string('picture');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('builder_id');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bike_garage');
+        Schema::dropIfExists('bikes');
     }
 };

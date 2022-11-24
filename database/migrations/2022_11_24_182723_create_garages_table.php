@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('garages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('customer_level');
+            $table->unsignedBigInteger('customer_level');
             $table->timestamps();
         });
     }

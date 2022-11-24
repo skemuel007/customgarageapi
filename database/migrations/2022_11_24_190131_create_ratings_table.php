@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('bike_id');
+            $table->unsignedBigInteger('rating');
             $table->timestamps();
         });
     }

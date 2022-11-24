@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Builder extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'location'
+    ];
+
+    public function bike() {
+        return $this->hasOne(Bike::class);
+    }
 }
