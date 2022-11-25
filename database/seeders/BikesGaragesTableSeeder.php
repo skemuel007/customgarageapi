@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 
 class BikesGaragesTableSeeder extends Seeder
 {
@@ -14,6 +16,7 @@ class BikesGaragesTableSeeder extends Seeder
      */
     public function run()
     {
+        $this->command->info('Inserting data into bike_garages table...');
         DB::table('bike_garages')->insert([
             'bike_id' => 1,
             'garage_id' => 2
@@ -23,5 +26,7 @@ class BikesGaragesTableSeeder extends Seeder
             'bike_id' => 2,
             'garage_id' => 2
         ]);
+
+        $this->command->info('Data insertion into bike_garages table completed');
     }
 }

@@ -32,11 +32,11 @@ class Bike extends Model
         return $this->belongsToMany(Garage::class);
     }
 
-    public function user() {
+    /*public function user() {
         return $this->belongsTo(User::class);
     }
 
     public function ratings() {
         return $this->hasMany(Rating::class);
-    }
+    }*/
 }

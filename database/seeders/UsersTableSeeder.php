@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $this->command->info('Inserting data into users table...');
         DB::table('users')->insert([
             'name' => 'Salvation Kemuel',
             'email' => 'skemuel@yopmail.com',
@@ -25,5 +27,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'dominion@yopmail.com',
             'password' => bcrypt('123456')
         ]);
+
+        $this->command->info('Data insertion into users table completed');
     }
 }

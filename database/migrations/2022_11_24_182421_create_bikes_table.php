@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('bikes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('make');
             $table->string('model');
             $table->string('year');
             $table->text('mods');
             $table->string('picture');
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('builder_id');
             $table->timestamps();
         });
